@@ -1,26 +1,21 @@
-//#pragma once
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
-
-
 #include <iostream> 
 #include <string>
 #include<vector>
+
+
 using std::string;
 bool notClearSt();
 bool notClearEn();
 double other1();
-
-double sum(double a, double b);
-double sub(double a, double b);
-double mult(double a, double b);
-double division(double a, double b);
-double exps(double a);
-double sqrt(double a);
-double percent(double a, double b);
-double pows(double a);
-double reversenum(double a);
-double mod(double a, double b);
+std::string stringInput();
+std::vector <std::string> separate(std::string n);
+std::string binary(std::string number);
+std::string binList(std::string number);
+std::string binary(std::string n);
+std::string DecimalToBinary(std::string number);
+std::string BinaryToOctal(std::string _Number);
 
 
 class Standart {
@@ -28,7 +23,7 @@ class Standart {
     char operation;
 public:
     Standart() {};
-    explicit Standart( double _number): number(_number) {};
+    explicit Standart(double _number) : number(_number) {};
     friend double other();
     void sum(double y);
     void sub(double y);
@@ -37,7 +32,7 @@ public:
     void exps();
     void sqrt();
     void percent(double y);
-    void pows();
+    void pows2();
     void reversenum();
     void clean();
     void standart();
@@ -52,8 +47,12 @@ public:
     Engineer() {};
     explicit Engineer(double _number1) : number1(_number1) {};
     unsigned long long factorial(unsigned long long x);
-    double pows(double x);
-    double sqrt(double x);
+    double pows(double x, double a);
+    double radical(double x, double b);
+    double sum(double x, double b);
+    double sub(double x, double b);
+    double mult(double x, double b);
+    double division(double x, double b);
     double cosRad(double x);
     double sinRad(double x);
     double tanRad(double x);
@@ -74,6 +73,42 @@ public:
     void engineer();
 };
 
+template<typename T>
+class Programmer
+{
+private:
+    T number;
+    char operation;
+    T notation;
+public:
+    explicit Programmer(T _notation): notation(_notation) {};
+    bool exclusiveOr(bool x);
+    bool conjunctionNegation(bool x);
+    bool disjunctionNegation(bool x);
+    T rightShift(const bool isLogic, const T x, const int shift);
+    T leftShift(const T x, const int shift, const bool isLogic);
+    T bitwiseDisjunctionNegation(const T x);
+    T bitwiseConjunctionNegation(const T x);
+    T bitwiseExclusiveOr(const T x);
+    T bitwiseOr(const T x);
+    T bitwiseAnd(const T x);
+    T bitwiseNot();
+    bool disjunction(bool x);
+    bool conjunction(bool x);
+    bool negation();
+    T unaryMinus();
+    T unaryPlus();
+    
+    void Notation();
+};
+
+class Date {
+    private:
+        int day, mes, day1, mes1;
+public:
+    void difference();
+};
+
 class Console {
     std::string foo;
 public:
@@ -81,13 +116,12 @@ public:
     friend double other1();
     void Choose();
     void Standart1();
-    //void Programmer();
+    void Programmer1();
     void Engineer1();
-    //void Data();
+    void Date1();
     void ChooseCalculator();
 };
 
-std::string stringInput();
-std::vector <std::string> separate(std::string n);
 
 #endif //FUNCTIONS_H
+

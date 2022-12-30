@@ -1,41 +1,7 @@
-#include "Functions.h"
+#include "functions.h"
 
 const double EPSILON = 0.00000001;
 
-double sum(double a, double b) {
-    return a + b;
-}
-double sub(double a, double b) {
-    return a - b;
-}
-double mult(double a, double b) {
-    return a * b;
-}
-double division(double a, double b) {
-    return a / b;
-}
-
-double sqrt(double a) {
-    double L = 0, R = a;
-    double M = (L + R) / 2;
-    while (R - L > EPSILON) {
-        if (M * M <= a) {
-            L = M;
-        }
-        else {
-            R = M;
-        }
-        M = (L + R) / 2;
-    }
-    return M;
-}
-
-double pows(double a)
-{
-    int b = a;
-    a *= b;
-    return a;
-}
 
 double exps(double x) {
     double res = 1;
@@ -47,14 +13,6 @@ double exps(double x) {
         currentTerm *= x / n;
     }
     return res;
-}
-
-double reversenum(double x) {
-    return 1 / x;
-}
-
-double percent(double a, double b) {
-    return a * b / 100;
 }
 
 void Standart::sum(double y) {
@@ -90,10 +48,10 @@ void Standart::sqrt() {
     std::cout << "Result: " << number << '\n';
 }
 
-void Standart::pows()
+void Standart::pows2()
 {
     number *= number;
-    std::cout << "Result: " << number;
+    std::cout << "Result: " << number << '\n';
 }
 
 void Standart::exps() {
@@ -106,7 +64,7 @@ void Standart::exps() {
         currentTerm *= number / n;
     }
     number = res;
-    std::cout << "Result: " << number;
+    std::cout << "Result: " << number << '\n';
 }
 
 void Standart::reversenum() {
@@ -119,9 +77,9 @@ void Standart::percent(double y) {
     std::cout << "Result: " << number << '\n';
 }
 
- double other() {
+double other() {
     std::cout << "Input number:";
-     double y;
+    double y;
     std::cin >> y;
     if (notClearSt()) {
         y = other();
@@ -129,15 +87,15 @@ void Standart::percent(double y) {
     return y;
 }
 
- bool notClearSt() {
-     bool isClear = false;
-     if (std::cin.fail()) {
-         std::cin.clear();
-         std::cin.ignore(32767, '\n');
-         isClear = true;
-     }
-     return isClear;
- }
+bool notClearSt() {
+    bool isClear = false;
+    if (std::cin.fail()) {
+        std::cin.clear();
+        std::cin.ignore(32767, '\n');
+        isClear = true;
+    }
+    return isClear;
+}
 void Standart::clean() {
     number = other();
 }
@@ -161,7 +119,7 @@ void Standart::standart() {
             break;
         case'%': percent(other());
             break;
-        case'^': pows();
+        case'^': pows2();
             break;
         case',': exps();
             break;

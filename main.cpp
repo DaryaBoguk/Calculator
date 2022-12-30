@@ -4,7 +4,6 @@
 
 
 int main() {
-
 	Console d;
 	d.Choose();
 	d.ChooseCalculator();
